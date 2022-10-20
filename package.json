@@ -1,6 +1,6 @@
 {
-  "name": "hermione-selenium-standalone-runner",
-  "version": "1.0.0",
+  "name": "hermione-selenium-standalone-runner-bmspd",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {

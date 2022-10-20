@@ -1,17 +1,16 @@
 const fs = require('fs')
-const {spawn} = require("child_process");
-const {delay} = require("rxjs");
+const cp = require("child_process");
 module.exports = (hermione) => {
   let selenium
-
+  const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
   hermione.on(hermione.events.RUNNER_START, async () => {
     const file = fs.openSync('selenium.log', 'w')
 
-    selenium = spawn('selenium-standalone', ['start'], {
-      stdio: ['ignore', file, file]
+    selenium = cp.spawn('selenium-standalone', ['start'], {
+      stdio: ['ignore', file, file], shell: true
     })
 
-    await delay(2000)
+    await delay(4000)
   })
 
   hermione.on(hermione.events.RUNNER_END, () => {
